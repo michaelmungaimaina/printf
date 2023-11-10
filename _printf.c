@@ -8,8 +8,8 @@ int _printf(const char * const format, ...)
 {
 	/** Conversion specifier and function pointer **/
 	convert_match m[] = {
-		{"%i", printf_int},
-		{"%d", printf_dec}
+		{"%i", print_int},
+		{"%d", print`_dec}
 	};
 
 	/** Holds variable arguments **/
