@@ -3,13 +3,24 @@
 #include <stdarg.h>
 
 /**
+ * print_binary - implementation of %b binary conversion
+ * @num: affected integers
+ *
+ * Return: either 1 or 0
+ */
+
+int print_binary(unsigned int num)
+
+
+/**
  * _printf - prints character & string to std output
  * @format: c & s format specifier
  *
  * Return: count
  */
 
-int _printf(const char * const format, ...){
+int _printf(const char * const format, ...)
+{
 	va_list args;
 	va_start(args, format);
 
@@ -20,31 +31,37 @@ int _printf(const char * const format, ...){
 		if (*format == '%')
 		{
 			format++;
+			if (*format == '\0')
+			{
+				fprintf(stderr, "Error: incomplete format specifier\n");
+				va_end(args);
+				return (-1);
+			}
 
 			switch (*format)
 			{
 				case 'c':
-					putchar(va_arg(args, int));
-					count++;
+					count += custom_putchar(va_arg(args, int));
 
 					break;
 				case 's':
 					count += printf("%s", va_arg(args, char *));
 					break;
 				case '%':
-					putchar('%');
-					count++;
+					count += custom_putchar('%');
+
+					break;
+					case 'b':
+					count += print_binary(va_arg(args, unsigned int));
 					break;
 				default:
-					putchar('%');
-					putchar(*format);
-					count += 2;
+					count += custom_putchar('%');
+					count += custom_putchar(*format);
 			}
 		}
 		else
 		{
-			putchar(*format);
-			count++;
+			count += custom_putchar(*format);
 		}
 		format++;
 	}
