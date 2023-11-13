@@ -27,6 +27,7 @@ int print_string(va_list args);
 int print_char(va_list args);
 int print_percent(void);
 int _strlen(char *s);
+int print_unsigned_int(va_list args);
 int _strlenp(const char *s);
 
 #endif

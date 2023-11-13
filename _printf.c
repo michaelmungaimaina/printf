@@ -14,7 +14,8 @@ int _printf(const char *format, ...)
 		{"%d", print_dec},
 		{"%s", print_string},
 		{"%c", print_char},
-		{"%%", print_percent}
+		{"%%", print_percent},
+		{"%u", print_unsigned_int}
 	};
 
 	/** Holds variable arguments **/
@@ -23,13 +24,13 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (0);
+		return (-1);
 
 Here:
 	/** format processing **/
 	while (format[i] != '\0')
 	{
-		j = 4;
+		j = 5;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
