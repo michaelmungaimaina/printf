@@ -26,5 +26,7 @@ int print_dec(va_list args);
 int print_string(va_list args);
 int print_char(va_list args);
 int print_percent(void);
+int _strlen(char *s);
+int _strlenp(const char *s);
 
 #endif
