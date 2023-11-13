@@ -9,7 +9,10 @@ int _printf(const char * const format, ...)
 	/** Conversion specifier and function pointer **/
 	convert_match m[] = {
 		{"%i", print_int},
-		{"%d", print`_dec}
+		{"%d", print_dec},
+		{"%s", print_string},
+		{"%c", print_char},
+		{"%%", print_percent}
 	};
 
 	/** Holds variable arguments **/
