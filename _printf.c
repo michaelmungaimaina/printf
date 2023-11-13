@@ -15,7 +15,8 @@ int _printf(const char *format, ...)
 		{"%s", print_string},
 		{"%c", print_char},
 		{"%%", print_percent},
-		{"%u", print_unsigned_int}
+		{"%u", print_unsigned_int},
+		{"%b", print_bin}
 	};
 
 	/** Holds variable arguments **/
@@ -30,7 +31,7 @@ Here:
 	/** format processing **/
 	while (format[i] != '\0')
 	{
-		j = 5;
+		j = 6;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
