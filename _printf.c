@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 		{"%b", print_bin},
 		{"%o", print_oct},
 		{"%x", print_hex},
-		{"%X", print_HEX}
+		{"%X", print_HEX},
+		{"%S", non_printable_char}
 	};
 
 	/** Holds variable arguments **/

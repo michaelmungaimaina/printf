@@ -32,6 +32,7 @@ int print_bin(va_list val);
 int print_oct(va_list val);
 int print_HEX(va_list val);
 int print_hex(va_list val);
+int non_printable_char(va_list val); 
 int _strlenp(const char *s);
 
 #endif
