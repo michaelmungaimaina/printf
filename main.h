@@ -35,7 +35,7 @@ int print_hex(va_list val);
 int print_pointer(va_list val);
 int non_printable_char(va_list val); 
 int print_HEX_aux(unsigned int n);
-int print_hex_aux(unsigned int n);
+int print_hex_aux(unsigned long int n);
 int _strlenp(const char *s);
 
 #endif
