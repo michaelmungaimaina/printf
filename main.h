@@ -16,7 +16,7 @@
 typedef struct format
 {
 	char *id;
-	int (*f)(va_list);
+	int (*f)();
 } call_match;
 
 int _printf(const char *format, ...);
