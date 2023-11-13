@@ -7,7 +7,7 @@
 int _printf(const char * const format, ...)
 {
 	/** Conversion specifier and function pointer **/
-	convert_match m[] = {
+	call_match m[] = {
 		{"%i", print_int},
 		{"%d", print_dec},
 		{"%s", print_string},
