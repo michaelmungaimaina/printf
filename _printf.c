@@ -17,7 +17,9 @@ int _printf(const char *format, ...)
 		{"%%", print_percent},
 		{"%u", print_unsigned_int},
 		{"%b", print_bin},
-		{"%o", print_oct}
+		{"%o", print_oct},
+		{"%x", print_hex},
+		{"%X", print_HEX}
 	};
 
 	/** Holds variable arguments **/
@@ -32,7 +34,7 @@ Here:
 	/** format processing **/
 	while (format[i] != '\0')
 	{
-		j = 7;
+		j = 9;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
