@@ -1,4 +1,6 @@
 #include "main.h"
+#include <stdarg.h>
+
 /**
  * _printf - is a function that calls the correct prototype function to print.
  * @format: identifier to look for.
@@ -21,13 +23,13 @@ int _printf(const char * const format, ...)
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
-		return (-1);
+		return (0);
 
 Here:
 	/** format processing **/
 	while (format[i] != '\0')
 	{
-		j = 13;
+		j = 4;
 		while (j >= 0)
 		{
 			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
