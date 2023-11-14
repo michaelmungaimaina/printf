@@ -4,7 +4,7 @@
  * print_pointer - prints an hexdecimal number.
  * @val: arguments.
  * Return: counter.
- *     */
+ */
 int print_pointer(va_list val)
 {
 	void *p;
