@@ -34,26 +34,34 @@ int _printf(const char *format, ...)
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 
-Here:
+	int flags = 0;
+
 	/** format processing **/
 	while (format[i] != '\0')
 	{
-		j = 13;
-		while (j >= 0)
+		if (format[i] == '%')
 		{
-			if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+			int temp_i = i;
+			
+			flags = get_flags(format, &temp_i);
+			j = 13;
+			while (j >= 0)
 			{
-				len += m[j].f(args);
-				i = i + 2;
-				goto Here;
+				if (m[j].id[0] == format[i] && m[j].id[1] == format[i + 1])
+				{
+					len += m[j].f(args, flags);
+					i = i + 2;
+					goto Here;
+				}
+				j--;
 			}
-			j--;
 		}
 		/** default case **/
 		_putchar(format[i]);
 		len++;
 		i++;
 	}
+Here:
 	va_end(args);
 	return (len);
 }

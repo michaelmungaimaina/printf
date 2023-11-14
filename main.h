@@ -6,6 +6,12 @@
 #include <stdarg.h>
 #include <limits.h>
 #include <unistd.h>
+/* FLAGS */
+#define F_MINUS 1
+#define F_PLUS 2
+#define F_ZERO 4
+#define F_HASH 8
+#define F_SPACE 16
 
 /**
  * struct format - match the conversion specifiers for printf
@@ -38,6 +44,7 @@ int print_pointer(va_list val);
 int non_printable_char(va_list val); 
 int print_HEX_aux(unsigned int n);
 int print_hex_aux(unsigned long int n);
+int get_flags(const char *format, int *i);
 int _strlenp(const char *s);
 
 #endif
